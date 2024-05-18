@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #startTest {
+            width: 200px;
+            height: 40px;
+            background-color: beige;
+            font-size: 24px;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Тест по Java Script</h2>
+    <button id="startTest">Начать тест</button>
+    <script>
+        document.getElementById('startTest').addEventListener('click', function () {
+            let questions = ['Может ли массив в JavaScript содержать элементы разных типов данных?',
+                'Можно ли добавить новый элемент в начало массива в JavaScript, используя метод push ?',
+                'Может ли массив в JavaScript иметь отрицательные индексы для доступа к элементам?',
+                'Может ли функция в JavaScript быть присвоена переменной как значение?',
+                'Можно ли в JavaScript определить функцию внутри другой функции?',
+                'Поддерживают ли объекты в JavaScript наследование множественных классов?',
+                'Может ли значение свойства объекта в JavaScript быть функцией?'
+
+            ]
+            let rightAnswers = [true, false, false, true, true, false, true]
+            let count = 0;
+            for (let i = 0; i < questions.length; i++) {
+                let userAnswer = confirm(questions[i]);
+                if (userAnswer === rightAnswers[i]) {
+                    count++;
+                }
+            }
+            alert("Ваш результат: " + count + " из " + questions.length);
+        });
+    </script>
+</body>
+
+</html>

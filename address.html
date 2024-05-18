@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Разделить на составные части введенный http-адрес.
+    Например, адрес “http://www.ufa.com.ua/utilites/hdd/out.php?sort=2” делится на следующие составляющие:
+    протокол http:
+    хост www.ufa.com.ua
+    путь /utilites/hdd/
+    имя файла out.php
+    строка запроса sort=2 -->
+</head>
+
+<body>
+    <script>
+        const url = "http://www.ufa.com.ua/utilites/hdd/out.php?sort=2";
+        function myUrl(url) {
+            const divide = url.split('://')
+            const protocol = divide[0] + ':';
+            const others = divide[1].split('/')
+            const host = others.shift(); //www.ufa.com.ua
+            const others2 = others.join('/');
+            const pathAndStr = others2.split('?');
+
+           const path2= pathAndStr[0].split('/');  //utilites/hdd/out.php         
+            const fileName = path2.pop(); //out.php
+        
+            const path = '/' + path2.join('/') + '/'; // /utilites/hdd /
+            const str = pathAndStr.pop();//sort=2
+
+            console.log(`Протокол: ${protocol}`);
+            console.log(`Хост: ${host}`);
+            console.log(`Путь: ${path}`);
+            console.log(`Имя файла: ${fileName}`);
+            console.log(`Строка запроса: ${str}`);
+        }
+        myUrl(url);
+    </script>
+</body>
+
+</html>

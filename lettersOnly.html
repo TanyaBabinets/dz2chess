@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- От пользователя требуется ввести ФИО. Необходимо, чтобы 
+    сценарий проверил ввод пользователя на наличие недопустимых
+    символов. Недопустимыми символами считать любые символы, 
+    кроме букв, пробелов и точек. Эти символы можно задать в
+    сценарии в виде строки. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: bisque;         
+        }
+        
+        .fio{
+           display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            flex-direction: column;
+            gap:30px;            
+        }
+        #label{
+            font-size:24px;
+        }
+        button{
+            background-color: rgb(136, 238, 136);
+            height: 30px;
+        }
+        #textInput{
+            width:500px;
+            height: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="fio">
+        <label id="label">Введите Фамилию Имя Отчество:</label>     
+            <input type="text" id="textInput" name="f">
+            <button type="button" onclick="CheckData()">Проверить корректность введенных данных</button>
+<p id="message"></p>
+        </div>
+    
+    <script>
+        function CheckData(){
+            const data= document.getElementById('textInput').value;
+            const message=document.getElementById('message')
+            const allow="абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ .".split('');
+     for(let i=0; i<data.length; i++){
+   
+       if(!allow.includes(data[i])){
+        message.textContent ="Введены неверные символы";
+        message.style.color="red";
+       return;
+        }    
+    }
+      message.textContent = "Вы ввели все верно, спасибо";
+      message.style.fontSize = "24px";
+      message.style.color = "black";
+}  
+       
+    </script>
+    
+</body>
+</html>
